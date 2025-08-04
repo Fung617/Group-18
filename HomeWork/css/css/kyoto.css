@@ -1,0 +1,245 @@
+/* ================ 日本主題色 ================ */
+:root {
+    --japan-red: #c91f37;
+    --japan-dark: #2e2e2e;
+    --japan-beige: #f5f0e6;
+}
+
+/* ================ 主視覺區 ================ */
+.japan-header {
+    position: relative;
+    height: 100vh;
+}
+
+.japan-header .header-content {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.japan-header .line {
+    background: var(--japan-red);
+    height: 4px;
+}
+
+/* ================ 導航欄當前頁面標識 ================ */
+.navbar .active a {
+    color: var(--japan-red) !important;
+    font-weight: bold;
+}
+
+/* ================ 關於京都區塊 ================ */
+.about-section {
+    background: var(--japan-beige);
+    padding: 80px 0;
+}
+
+.about-section .line {
+    background: var(--japan-red);
+}
+
+.about-section p::first-letter {
+    font-size: 2.5rem;
+    color: var(--japan-red);
+    float: left;
+    margin-right: 10px;
+    line-height: 1;
+}
+
+/* ================ 景點卡片 ================ */
+.attraction-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 0 50px;
+}
+
+.attraction-card {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.attraction-card:hover {
+    transform: translateY(-10px);
+}
+
+.attraction-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.attraction-info {
+    padding: 20px;
+    background: white;
+}
+
+.small-ctn {
+    display: inline-block;
+    padding: 8px 15px;
+    background: var(--japan-red);
+    color: white;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+/* ================ 文化體驗 ================ */
+.culture-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 0 50px;
+}
+
+.culture-card {
+    background: white;
+    padding: 30px 20px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.culture-card i {
+    font-size: 2.5rem;
+    color: var(--japan-red);
+    margin-bottom: 15px;
+}
+
+/* ================ 響應式設計 ================ */
+@media (max-width: 900px) {
+    .culture-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .attraction-grid,
+    .culture-grid {
+        grid-template-columns: 1fr;
+        padding: 0 20px;
+    }
+}
+
+/* ================ 地圖區塊 ================ */
+.map-container {
+    position: relative;
+    margin: 20px auto;
+    width: 90%;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.custom-markers {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.marker {
+    position: absolute;
+    transform: translate(-50%, -100%);
+}
+
+.pin {
+    width: 20px;
+    height: 20px;
+    background: var(--japan-red);
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+}
+
+.info {
+    background: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    transform: translateX(-50%);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+/* ================ 天氣與節慶 ================ */
+.info-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    padding: 0 50px;
+    margin: 50px auto;
+}
+
+.weather-card, .events-card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.weather-main {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+}
+
+#weather-icon {
+    width: 60px;
+    height: 60px;
+}
+
+#temp {
+    font-size: 2.5rem;
+    margin-left: 15px;
+    color: var(--japan-red);
+}
+
+.monthly-events {
+    margin-top: 20px;
+}
+
+.event {
+    padding: 10px 0;
+    border-bottom: 1px dashed #eee;
+}
+
+.event-date {
+    color: var(--japan-red);
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.manual-events table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.manual-events th, .manual-events td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.manual-events tr:hover {
+    background-color: #fff9f9;
+}
+
+.manual-events th {
+    background-color: var(--japan-red);
+    color: white;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    .info-section {
+        grid-template-columns: 1fr;
+    }
+    
+    .map-attractions {
+        grid-template-columns: 1fr;
+    }
+}
