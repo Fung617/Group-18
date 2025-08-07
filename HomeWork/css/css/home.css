@@ -561,7 +561,8 @@ img:hover {
     }
 }
 
-/* === 新增样式 === */
+/* ===== 頁尾樣式 (與首頁一致) ===== */
+/* 標誌動畫效果 */
 .header-logo {
     height: 40px;
     transition: transform 0.3s;
@@ -570,75 +571,50 @@ img:hover {
     transform: rotate(-5deg) scale(1.1);
 }
 
-/* 回復 footer 原本嘅顏色 */
+/* 頁尾基礎樣式 */
 .footer {
-    background: #2c3e50;
+    background: #2c3e50; /* 保持與首頁相同深藍色 */
     color: white;
     padding: 50px 0 20px;
 }
 
-/* 調整 footer-container 布局 */
+/* 網格布局容器 */
 .footer-container {
     display: grid;
-    justify-content: space-between; /* 平均分配空間 */
     grid-template-columns: 1fr 1fr 1fr; /* 三等分 */
     gap: 40px; /* 欄位間距 */
     width: 85%;
     margin: 0 auto;
     padding-bottom: 30px;
-    align-items: start; 
+    align-items: start;
 }
 
-/* 聯絡資訊保持左邊 */
+/* 聯絡資訊區塊 */
 .contact-info {
-    flex: 1;
+    order: 1; /* 保持左側 */
     min-width: 250px;
-    order: 1;
 }
 
-/* 訂閱電子報移到右邊靠右 */
+/* 社交媒體區塊 */
+.social-media {
+    order: 3; /* 保持右側 */
+    min-width: 250px;
+    text-align: right;
+}
+
+/* 電子報訂閱區塊 */
 .newsletter {
-    flex: 1;
+    order: 2; /* 中間位置 */
     min-width: 300px;
     text-align: center;
 }
 
-.newsletter form {
-    display: flex;
-    margin-top: 15px; /* 減低間距，令同下面貼近 */
-    justify-content: flex-end;
-    gap: 0; /* 移除 input 同 button 之間嘅間距 */
-}
-
-.newsletter input {
-    width: 70%;
-    padding: 10px;
-    border: none;
-    border-radius: 4px 0 0 4px;
-}
-
-.newsletter button {
-    background: #FF5482;
-    color: white;
-    border: none;
-    padding: 0 15px;
-    border-radius: 0 4px 4px 0;
-    cursor: pointer;
-}
-
-/* 關注我們喺訂閱電子報之下，靠右同貼近 */
-.social-media {
-    flex: 1;
-    min-width: 250px;
-    text-align: right;
-    order: 3;
-}
-
+/* 社交媒體圖標 */
 .social-icons {
     display: flex;
-    justify-content: flex-end; /* 確保 icon 靠右 */
-    gap: 10px; /* 保持適當嘅 icon 間距 */
-    margin-top: 5px; /* 減低同上面嘅間距，令貼近 */
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 5px;
 }
 
 .social-icons a {
@@ -654,69 +630,73 @@ img:hover {
 }
 
 .social-icons a:hover {
-    background: #FF5482;
+    background: #FF5482; /* 保持粉色hover效果 */
     transform: translateY(-3px);
 }
 
-.copyright {
-    text-align: center;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-}
-
-/* 圖標通用樣式 */
-.footer h3 i {
-    margin-right: 10px;
-}
-
-.social-icons a:hover {
-    background: #FF5482;
-    transform: translateY(-3px);
-}
-
+/* 電子報表單 */
 .newsletter form {
     display: flex;
+    margin-top: 15px;
+    justify-content: center;
+    gap: 0;
 }
 
 .newsletter input {
-    flex: 1;
+    width: 70%;
     padding: 10px;
     border: none;
     border-radius: 4px 0 0 4px;
 }
 
 .newsletter button {
-    background: #FF5482;
+    background: #FF5482; /* 粉色按鈕 */
     color: white;
     border: none;
     padding: 0 15px;
     border-radius: 0 4px 4px 0;
     cursor: pointer;
+    transition: background 0.3s;
+}
+
+.newsletter button:hover {
+    background: #e04a72; /* 深一點的粉色 */
+}
+
+/* 版權資訊 */
+.copyright {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    width: 85%;
+    margin: 0 auto;
+}
+
+/* 通用圖標樣式 */
+.footer h3 i {
+    margin-right: 10px;
 }
 
 /* 響應式設計 */
 @media (max-width: 768px) {
     .footer-container {
-        flex-direction: column;
-    }
-    
-    .contact-info, 
-    .newsletter,
-    .social-media {
-        order: initial; /* 重置排序 */
-        text-align: center;
-        margin-bottom: 20px;
-    }
-    
-    .contact-items {
+        grid-template-columns: 1fr;
         text-align: center;
     }
     
-    .contact-items p {
+    .contact-info,
+    .social-media,
+    .newsletter {
+        order: initial;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    
+    .social-icons {
         justify-content: center;
     }
-
-    .social-icons {
-        justify-content: center; /* 手機版圖標居中 */
+    
+    .newsletter form {
+        justify-content: center;
     }
 }

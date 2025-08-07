@@ -1,3 +1,31 @@
+// 圖片點擊全屏預覽
+document.querySelector('.about-section .image-col img').addEventListener('click', function() {
+    const overlay = document.createElement('div');
+    overlay.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0,0,0,0.9);
+        z-index: 2000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: zoom-out;
+    `;
+    
+    const enlargedImg = this.cloneNode();
+    enlargedImg.style.maxHeight = '90vh';
+    enlargedImg.style.maxWidth = '90vw';
+    enlargedImg.style.objectFit = 'contain';
+    
+    overlay.appendChild(enlargedImg);
+    overlay.addEventListener('click', () => document.body.removeChild(overlay));
+    
+    document.body.appendChild(overlay);
+});
+
 // 在kyoto.js中替換天氣函數
 const weatherData = {
     1: { temp: "5°C", icon: "cloudy.png", gear: "厚外套+圍巾" },
